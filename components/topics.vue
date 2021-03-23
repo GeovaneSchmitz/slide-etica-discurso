@@ -1,10 +1,10 @@
 <template lang="pug">
 div.wrapper
-  ul.list(:class='{"list-disable": currentTopics !== 1}')
-    li.topic(v-for="(topic, index) in topics1" :key="topic")
+  .list(:class='{"list-disable": currentTopics !== 1}')
+    .topic(v-for="(topic, index) in topics1" :key="topic")
       span(v-html="topic")
-  ul.list.list-2(:class='{"list-disable": currentTopics !== 2}')
-    li.topic(v-for="(topic, index) in topics2" :key="topic")
+  .list.list-2(:class='{"list-disable": currentTopics !== 2}')
+    .topic(v-for="(topic, index) in topics2" :key="topic")
       span(v-html="topic")
 </template>
 <script>
@@ -81,13 +81,16 @@ export default {
   position: relative;
   margin: 0;
   vertical-align: middle;
+  margin-top: 1em;
   padding-left: 1em;
-  text-indent: -1em;
 }
 .topic::before {
   content: '• ';
+  position: absolute;
   font-size: 2em;
+  left: 0;
+  top: -0.3em;
   vertical-align: middle;
-  color: #ffbc25; /* or whatever color you prefer */
+  color: var(--secondary);
 }
 </style>

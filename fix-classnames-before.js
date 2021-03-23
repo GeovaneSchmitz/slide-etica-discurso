@@ -57,7 +57,7 @@ module.exports = function (source) {
 
   if (isValidPathClasses) {
     source = source.replace(
-      /(\.[^ .;{}>/:(),'0-9"][^ .;{}>:(),/'"]+)(?![^{]+;)/g,
+      /(\.[^ .;{}>/:(),'0-9"][^ .;{}>:(),/'"]+)(?![^{]+[};])/g,
       (classname) => {
         const [
           classnameWithoutTransition,
@@ -83,7 +83,7 @@ module.exports = function (source) {
   if (isValidPathKeyframes) {
     const keyFramesNames = {}
     source = source.replace(
-      /@[-a-z]*?keyframes [^ .;{}>/:(),'0-9"][^ .;{}>:(),/'"]+(?![^{]+;)/g,
+      /@[-a-z]*?keyframes [^ .;{}>/:(),'0-9"][^ .;{}>:(),/'"]+(?![^{]+[};])/g,
       (classname) => {
         const keyframesSplited = classname.match(
           /(^@[-a-z]*?keyframes )|[\s\S]+/g

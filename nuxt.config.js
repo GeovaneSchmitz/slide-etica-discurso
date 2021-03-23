@@ -44,6 +44,7 @@ const generateGetLocalIdent = (isDev) => (
   const isValidPath = permitedPaths.some(
     (path) => context.resourcePath.indexOf(path) === 0
   )
+
   if (!isValidPath) return localName
   const classnameWithoutTransition = localName.replace(
     /(Leave|Enter)(To|From|Active)?$/,
@@ -120,7 +121,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['~/styles/fonts.scss'],
+  css: ['~/styles/fonts.scss', '~/styles/colors.scss'],
 
   /*
    ** Plugins to load before mounting the App

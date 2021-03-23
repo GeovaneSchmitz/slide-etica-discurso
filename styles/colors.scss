@@ -1,0 +1,44 @@
+body[data-color-scheme='orange'] {
+  --message: #ff531f;
+  --primary: #ff531f;
+  --background: #e8f4fa;
+  --secondary: #ff531f;
+  --text: #32363f;
+  --text-on-secondary: #fff;
+}
+
+body[data-color-scheme='yellow'] {
+  --message: #ca9c30;
+  --primary: #ffbc25;
+  --background: #e8f4fa;
+  --secondary: #ffbc25;
+  --text: #32363f;
+  --text-on-secondary: rgba(0, 0, 0, 0.8);
+}
+
+body[data-color-scheme='grey'] {
+  --message: #545b68;
+  --background: #e8f4fa;
+  --text: #32363f;
+  --secondary: #545b68;
+  --primary: #545b68;
+  --text-on-secondary: #fff;
+}
+
+body[data-color-scheme='purple'] {
+  --message: #674d9d;
+  --background: #4e3388;
+  --text: #fff;
+  --secondary: #ffbc25;
+  --primary: #ffbc25;
+  --text-on-secondary: #4e3388;
+}
+
+body[data-color-scheme='macaron'] {
+  --message: #874e4c;
+  --background: #f7dfd4;
+  --secondary: #472426;
+  --primary: #472426;
+  --text: #472426;
+  --text-on-secondary: #f7dfd4;
+}

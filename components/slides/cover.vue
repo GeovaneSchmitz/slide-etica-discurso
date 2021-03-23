@@ -32,7 +32,7 @@ export default {
           position: 'left',
           width: 5,
           height: 1,
-          timeout: 100,
+          timeout: 200,
         },
         {
           id: 1,
@@ -40,7 +40,7 @@ export default {
           position: 'right',
           width: 4,
           height: 1,
-          timeout: 120,
+          timeout: 220,
         },
         {
           id: 2,
@@ -48,7 +48,7 @@ export default {
           position: 'left',
           width: 5,
           height: 1,
-          timeout: 200,
+          timeout: 250,
         },
         {
           id: 3,
@@ -65,7 +65,7 @@ export default {
           width: 6,
           height: 1,
           noSpace: true,
-          timeout: 70,
+          timeout: 130,
         },
         {
           id: 5,
@@ -89,7 +89,7 @@ export default {
           position: 'left',
           width: 3,
           height: 1,
-          timeout: 170,
+          timeout: 110,
           noSpace: true,
         },
         {
@@ -98,7 +98,7 @@ export default {
           position: 'left',
           width: 7,
           height: 2,
-          timeout: 200,
+          timeout: 120,
         },
         {
           id: 9,
@@ -134,7 +134,13 @@ export default {
       } else {
         this.course = ''
         this.currentAuthors = []
-        this.currentMessages = this.currentMessages.slice(-2)
+        if (value.index === '3' || value.index === '7') {
+          this.currentMessages = []
+        } else if (value.index === '6') {
+          this.currentMessages = this.messages.slice(-1)
+        } else {
+          this.currentMessages = this.messages.slice(-2)
+        }
         if (this.intervalNames) {
           clearTimeout(this.intervalNames)
           this.intervalNames = null
@@ -197,6 +203,7 @@ export default {
 }
 
 .chat {
+  opacity: 0.8;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -215,7 +222,7 @@ export default {
     width: 100%;
     border-radius: 0.25em;
     &-wrapper {
-      transition: all 500ms;
+      transition: all 100ms;
       font-size: 2.4em;
       display: block;
       position: relative;
@@ -224,8 +231,8 @@ export default {
       z-index: -1;
       position: absolute;
       width: 1em;
-      height: 1em;
-      top: 0;
+      height: 0.9em;
+      top: 0.025em;
     }
 
     &-is-left &-corner {
@@ -258,7 +265,7 @@ export default {
 
 .course {
   display: block;
-  color: #fff;
+  color: var(--text);
   font-size: 1.5em;
 }
 
@@ -266,13 +273,13 @@ export default {
   position: relative;
   display: block;
   margin-bottom: 0.3em;
-  background-color: #674d9d;
+  background-color: var(--message);
   border-radius: 0 0.25em 0.25em 0.35em;
   padding: 0.3em 1em;
   color: #fff;
   width: max-content;
   font-size: 1.3em;
-  transition: all 400ms;
+  transition: all 500ms;
   &-enter,
   &-leave-to {
     opacity: 0;
@@ -282,7 +289,7 @@ export default {
   &-corner {
     z-index: -1;
     position: absolute;
-    background-color: #674d9d;
+    background-color: var(--message);
     width: 1em;
     height: 1em;
     left: 0;

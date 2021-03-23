@@ -3,29 +3,28 @@
     .presentation.presentation-screen(:data-breakpoint="currentBreakpoint.index", ref='presentation')
       app-background(:current-breakpoint="currentBreakpoint")
       div.slide-wrapper
-        transition(name="opacity")
-          app-text-typing.title(:text="currentBreakpoint.title" v-show="currentBreakpoint.title" :speed="50")
-        transition(name="opacity")
-          app-text-typing.subtitle(:text="currentBreakpoint.subtitle" v-show="currentBreakpoint.title" :speed="25")
-        transition(name="opacity")
-          div.content-wrapper(v-show="currentBreakpoint.title")
-            app-slide-cover.slide(:current-breakpoint="currentBreakpoint")
-            app-topics.topics(v-show="currentBreakpoint.title" :topics="currentBreakpoint.topics||[]")
+        app-text-typing.title(:text="currentBreakpoint.title" v-show="currentBreakpoint.title" :speed="50")
+        app-text-typing.subtitle(:text="currentBreakpoint.subtitle" v-show="currentBreakpoint.title" :speed="25")
+        div.content-wrapper(v-show="currentBreakpoint.title")
+          app-slide-cover.slide(:current-breakpoint="currentBreakpoint")
+          app-topics.topics(v-show="currentBreakpoint.title" :topics="currentBreakpoint.topics||[]")
+          img.image(:class="{'image-show': currentBreakpoint.index ==='3'}"  src="../assets/images/Jurgen-Habermas.jpg")
+          app-book.books(:show="currentBreakpoint.index ==='6'")
 </template>
 
 <script>
 import appBackground from '@/components/background.vue'
 import appSlideCover from '@/components/slides/cover.vue'
 import appTextTyping from '@/components/text-typing.vue'
-import appInlineSvg from '~/components/inline-svg.vue'
 import appTopics from '~/components/topics.vue'
+import appBook from '~/components/books.vue'
 export default {
   components: {
     appBackground,
-    appInlineSvg,
     appTextTyping,
     appSlideCover,
     appTopics,
+    appBook,
   },
   props: {
     currentBreakpoint: {
@@ -78,17 +77,9 @@ export default {
   flex-grow: 10;
   position: absolute;
   font-size: 2em;
-  color: #fff;
+  color: var(--text);
   font-weight: 400;
   padding: 2em 0 0 0;
-}
-
-.opacity {
-  &-enter,
-  &-leave-to {
-    opacity: 0;
-    transform: translateY(1em);
-  }
 }
 
 .slide {
@@ -116,14 +107,14 @@ export default {
   font-weight: 800;
   font-size: 4em;
   line-height: 1;
-  color: #ffbc25;
+  color: var(--primary);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 .subtitle {
   transition: all 400ms;
   display: block;
-  color: #fff;
+  color: var(--text);
   font-size: 2em;
 }
 .presentation {
@@ -131,6 +122,29 @@ export default {
   user-select: none;
   overflow: hidden;
   display: none;
+}
+.books {
+  transition: 400ms all;
+  width: 20em;
+  height: auto;
+  position: absolute;
+  right: 8em;
+  margin-top: 1em;
+}
+.image {
+  transition: 400ms all;
+  width: 35em;
+  height: auto;
+  right: 0;
+  opacity: 0;
+  transform: translateX(2em);
+  position: absolute;
+  object-fit: contain;
+  border-radius: 0.25em;
+}
+.image-show {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 @media screen {

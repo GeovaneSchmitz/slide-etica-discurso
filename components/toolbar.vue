@@ -1,12 +1,19 @@
 <template lang="pug">
 .toolbar-wrapper(@click="mouseClick($event)", @mousemove="mouseMove" :class="{'toolbar-hide-cursor': !toolbarActive}")
   .toolbar(:class='{ "toolbar-active": toolbarActive}', @pointerout="toolbarOut", @pointerover="toolbarOver", ref="toolbar")
-    .toolbar-button(@click="toolbarToPrevious()")
-      |<
-    .counter
-      |{{currentBreakpoint.label}}
-    .toolbar-button(@click="toolbarToNext()")
-      |>
+    .toolbar-controls
+      .toolbar-button(@click="toolbarToPrevious()")
+        |<
+      .counter
+        |{{currentBreakpoint.label}}
+      .toolbar-button(@click="toolbarToNext()")
+        |>
+    .toolbar-colors
+      .toolbar-color.orange(@click="colorSchemeChange('orange')")
+      .toolbar-color.yellow(@click="colorSchemeChange('yellow')")
+      .toolbar-color.macaron(@click="colorSchemeChange('macaron')")
+      .toolbar-color.grey(@click="colorSchemeChange('grey')")
+      .toolbar-color.purple(@click="colorSchemeChange('purple')")
 </template>
 
 <script>
@@ -14,17 +21,20 @@ export default {
   props: {
     currentBreakpoint: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
       timeoutHideToolbar: 1000,
       toolbarActive: false,
-      toolbarFocus: false
+      toolbarFocus: false,
     }
   },
   methods: {
+    colorSchemeChange(color) {
+      this.$root.$emit('color-scheme-change', color)
+    },
     toolbarOver() {
       this.toolbarFocus = true
       this.toolbarActive = true
@@ -75,8 +85,8 @@ export default {
     },
     goToNextBreakpoint() {
       this.$root.$emit('request-to-next')
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -90,7 +100,53 @@ export default {
   align-items: flex-end;
   justify-content: center;
 }
+.toolbar-controls {
+  display: flex;
+  width: 50%;
+}
+.toolbar-colors {
+  display: flex;
+}
+.toolbar-color {
+  width: 25px;
+  margin: 2px;
+  height: 25px;
+  border-radius: 15.2px;
+  border: solid 2px rgba(255, 255, 255, 0);
+  transition: all 200ms;
+}
 
+.grey {
+  background: #545b68;
+}
+.macaron {
+  background-color: #f7d7d4;
+}
+.purple {
+  background: #4e3388;
+}
+.yellow {
+  background: #ffbc25;
+}
+.orange {
+  background: #ff531f;
+}
+
+body[data-color-scheme='grey'] .grey,
+body[data-color-scheme='macaron'] .macaron,
+body[data-color-scheme='purple'] .purple,
+body[data-color-scheme='yellow'] .yellow,
+body[data-color-scheme='orange'] .orange {
+  border: solid 2px #fff;
+}
+
+.toolbar-color:hover {
+  opacity: 0.8;
+}
+
+.toolbar-color:active {
+  opacity: 1;
+}
 .toolbar-button,
 .counter {
   font-size: 2rem;
