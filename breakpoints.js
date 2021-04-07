@@ -119,7 +119,7 @@ export default [
     topics: [
       'FRAZÃO, Dilva. <b>Jürgen Habermas</b>: filósofo alemão. Filósofo alemão. 2020. Disponível em: https://www.ebiografia.com/jurgen_habermas/. Acesso em: 14 mar. 2021.',
       'HTTPS://GUIADOESTUDANTE.ABRIL.COM.BR/ESPECIAIS/JURGEN-HABERMAS/, Guia do Estudante Leia Mais Em:. <b>JÜRGEN HABERMAS</b>. 2017. Disponível em: https://guiadoestudante.abril.com.br/especiais/jurgen-habermas/. Acesso em: 13 mar. 2021.',
-      'JORNAL GRANDE BAHIA (Bahia). Jürgen Habermas, 90 anos de inquietude filosófica. 2019. Disponível em: https://www.jornalgrandebahia.com.br/2019/06/jurgen-habermas-90-anos-de-inquietude-filosofica/. Acesso em: 19 mar. 2021.',
+      'JORNAL GRANDE BAHIA (Bahia). <b>Jürgen Habermas, 90 anos de inquietude filosófica</b>. 2019. Disponível em: https://www.jornalgrandebahia.com.br/2019/06/jurgen-habermas-90-anos-de-inquietude-filosofica/. Acesso em: 19 mar. 2021.',
       'JÜRGEN Habermas. 2015. Disponível em: https://brasilescola.uol.com.br/sociologia/jurgen-habermas.htm. Acesso em: 13 mar. 2021.',
     ],
   },
