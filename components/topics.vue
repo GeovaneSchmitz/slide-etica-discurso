@@ -1,7 +1,7 @@
 <template lang="pug">
 div.wrapper
   .list(:class='{"list-disable": currentTopics !== 1}')
-    .topic(v-for="(topic, index) in topics1" :key="topic")
+    .topic(v-for="(topic, index) in topics1" :key="topic" v-html="topic")
       span(v-html="topic")
   .list.list-2(:class='{"list-disable": currentTopics !== 2}')
     .topic(v-for="(topic, index) in topics2" :key="topic")
@@ -68,6 +68,7 @@ export default {
   transition: all 400ms;
   display: flex;
   flex-direction: column;
+  word-break: break-word;
   &-disable {
     opacity: 0;
     transform: translateX(1em);
@@ -83,6 +84,10 @@ export default {
   vertical-align: middle;
   margin-top: 1em;
   padding-left: 1em;
+}
+.topic span {
+  word-break: break-word;
+  max-width: 100%;
 }
 .topic::before {
   content: '• ';

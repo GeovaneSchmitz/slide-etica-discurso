@@ -248,17 +248,17 @@ export default {
       align-self: flex-end;
     }
     &-is-red & {
-      background-color: #fa3240;
+      background-color: #874e4c;
     }
     &-is-red .chat-message-corner {
-      background-color: #860b1d;
+      background-color: #2e1718;
     }
     &-is-green & {
-      background-color: #15c366;
+      background-color: #874e4c;
     }
 
     &-is-green .chat-message-corner {
-      background-color: #12954f;
+      background-color: #2e1718;
     }
   }
 }

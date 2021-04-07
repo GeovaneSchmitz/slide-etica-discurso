@@ -79,7 +79,7 @@ export default {
   font-size: 2em;
   color: var(--text);
   font-weight: 400;
-  padding: 2em 0 0 0;
+  padding: 1em 0 0 0;
 }
 
 .slide {

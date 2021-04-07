@@ -6,7 +6,7 @@
 <script>
 export default {
   data() {
-    return { colorScheme: 'orange' }
+    return { colorScheme: 'macaron' }
   },
 
   head() {
